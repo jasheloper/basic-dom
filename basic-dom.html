@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM example</title>
+  </head>
+  <body>
+      <section>
+        <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+      </section>
+
+
+      <script>
+        // change link text and URL
+        const link = document.querySelector("a");
+        link.textContent = "Mozilla Developer Network";
+        link.href = "https://developer.mozilla.org";
+
+        // new paragraph in the section
+        const sect = document.querySelector("section");
+        const para = document.createElement("p");
+        para.textContent = "We hope you enjoyed the ride.";
+        sect.appendChild(para);
+
+        // add text to the paragraph wtih link
+        const text = document.createTextNode(" - the premier source for web development knowledge.");
+        const linkPara = document.querySelector("p");
+        linkPara.appendChild(text);
+
+        // move paragraph with link to the bottom of the document
+        sect.appendChild(linkPara);
+
+        // remove node when you have a reference to the node to be removed and its parent
+        // sect.removeChild(linkPara);
+
+        // remove a node based only on a reference to itself
+        linkPara.remove();
+
+        /*
+        cloning instead of moving
+        linkParaClone = linkPara.cloneNode(true);
+        sect.appendChild(linkParaClone);
+        */
+      </script>
+
+
+  </body>
+</html>
